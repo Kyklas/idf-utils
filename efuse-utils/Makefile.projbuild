@@ -1,0 +1,12 @@
+# Efuse Utility Targets 
+
+$(eval $(call help-space))
+
+$(eval $(call help-add,efuse-summary, Show efuse summary))
+efuse-summary:
+	$(ESPEFUSEPY) --port $(ESPPORT) --baud $(ESPBAUD) --before $(CONFIG_ESPTOOLPY_BEFORE)  summary
+
+
+
+
+$(eval $(call help-space))
