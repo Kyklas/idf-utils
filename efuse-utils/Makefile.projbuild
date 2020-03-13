@@ -6,7 +6,16 @@ $(eval $(call help-add,efuse-summary, Show efuse summary))
 efuse-summary:
 	$(ESPEFUSEPY) --port $(ESPPORT) --baud $(ESPBAUD) --before $(CONFIG_ESPTOOLPY_BEFORE)  summary
 
+$(eval $(call help-add,efuse-burn-sdio-force, Burn Efuse XPD_SDIO_FORCE (SDIO Config by Efuse)))
+efuse-burn-sdio-force:
+	$(ESPEFUSEPY) --port $(ESPPORT) --baud $(ESPBAUD) --before $(CONFIG_ESPTOOLPY_BEFORE)  burn_efuse XPD_SDIO_FORCE
 
+$(eval $(call help-add,efuse-burn-sdio-reg, Burn Efuse XPD_SDIO_REG (Will enable SDIO Regulator)))
+efuse-burn-sdio-reg:
+	$(ESPEFUSEPY) --port $(ESPPORT) --baud $(ESPBAUD) --before $(CONFIG_ESPTOOLPY_BEFORE)  burn_efuse XPD_SDIO_REG
 
+$(eval $(call help-add,efuse-burn-sdio-tieh, Burn Efuse XPD_SDIO_TIEH (Will Tie High SDIO Regulator, 3.3V)))
+efuse-burn-sdio-tieh:
+	$(ESPEFUSEPY) --port $(ESPPORT) --baud $(ESPBAUD) --before $(CONFIG_ESPTOOLPY_BEFORE)  burn_efuse XPD_SDIO_TIEH
 
 $(eval $(call help-space))
